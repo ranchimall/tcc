@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technology Certifier Company</title>
+    <link rel="stylesheet" href="css/main.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <h4 id="company_title">
+            TC<sup>2</sup>
+        </h4>
+    </header>
+    <section id="hero_section">
+        <h1>Company Mission here <br>
+            in huge font</h1>
+    </section>
+    <section id="team_section">
+        <h3 class="section-title">Team</h3>
+        <ul id="team_members"></ul>
+    </section>
+    <script>
+        const teamMembers = [
+            {
+                name: 'Parin Lapasia',
+                title: 'Principal director and shareholder',
+                image: 'assets/craig-mckay-jmURdhtm7Ng-unsplash.jpg'
+            },
+            {
+                name: 'Rohit Tripathy',
+                title: 'Principal director and shareholder',
+                image: 'assets/Rohit Tripathy.jpg'
+            },
+            {
+                name: 'Puneet Sondh',
+                title: 'Principal director',
+                image: 'assets/Puneet Sondh.jpg'
+            },
+            {
+                name: 'Ruchir Gupta',
+                title: 'Principal director',
+                image: 'assets/Ruchir Gupta.jpg'
+            },
+        ]
+
+        window.onload = () => {
+            const teamMembersList = document.getElementById('team_members')
+            teamMembers.sort((a, b) => a.name.localeCompare(b.name))
+            teamMembers.forEach(member => {
+                const { image, name, title } = member
+                const memberItem = document.createElement('li')
+                memberItem.classList.add('team-member')
+                memberItem.innerHTML = `
+                    <div class="team-member__image-container">
+                        <img src="${image}" alt="${name} profile picture" loading="lazy">
+                        <img src="assets/stamp-outline.svg">    
+                    </div>
+                    <p class="team-member__name">${name},</p>
+                    <p class="team-member__title">${title}</p>
+                `
+                teamMembersList.appendChild(memberItem)
+            })
+        }
+    </script>
+</body>
+
+</html>
